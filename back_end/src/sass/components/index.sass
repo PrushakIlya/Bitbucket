@@ -1,0 +1,48 @@
+@import  "./../_vars"
+.index_section
+  .index
+    margin-top: 50px
+    form
+      .index_header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        border-bottom: 2px solid $black
+        padding-bottom: 30px
+
+        h1
+          font-size: 25px
+        .index_btn
+          display: flex
+          .btn_delete
+            margin-left: 20px
+          form
+            margin-right: 20px
+            &:last-child
+              margin-right: 0
+
+      .index_blocks
+        margin-top: 50px
+        display: grid
+        grid-template-columns: 21% 21% 21% 21%
+        column-gap: 5.33%
+        row-gap: 50px
+
+        .index_block
+          padding: 20px 20px 50px 20px
+          border: 2px solid $black
+
+          .index_block_text
+            text-align: center
+            display: flex
+            flex-direction: column
+            align-items: center
+            .img
+              background-position: center
+              background-repeat: no-repeat
+              background-size: cover
+              width: 200px
+              height: 200px
+              margin-bottom: 20px
+            p
+              margin-bottom: 3px

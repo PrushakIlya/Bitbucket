@@ -1,0 +1,49 @@
+@import "_vars"
+.wrapper
+  max-width: 1200px
+  margin: 0 auto
+body
+  #root
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    font-size: 16px
+    height: 100vh
+    font-family: Georgia, serif
+    main
+      flex-grow: 1
+
+    footer
+      position: relative
+      bottom: 0
+
+.btn
+  cursor: pointer
+  border: 2px solid $black
+  border-radius: 5px
+  padding: 5px
+  &:hover
+    opacity: .8
+
+a
+  display: flex
+  align-items: center
+  padding: 3px 0
+
+.btn_delete
+  background-color: $red
+  color: $white
+
+.btn_cancel_add:hover
+  background-color: $blue
+  color: $white
+
+.btn_save
+  background-color: $green
+  color: $white
+
+.disabled
+  cursor: not-allowed
+  opacity: .5
+  &:hover
+    opacity: .5

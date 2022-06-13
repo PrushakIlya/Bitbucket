@@ -1,0 +1,15 @@
+{
+    "name": "prushak/scandiweb",
+    "autoload": {
+        "psr-4": {
+            "Prushak\\Scandiweb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ilya",
+            "email": "89218019+PrushakIlya@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

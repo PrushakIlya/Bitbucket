@@ -18,7 +18,7 @@ class FrontController extends BaseController
 
   public function index()
   {
-    $sql = "SELECT * FROM Product";
+    $sql = "SELECT * FROM products";
     $statment = $this->conn->query($sql);
     $results = $statment->fetchAll(PDO::FETCH_ASSOC);
     $json = json_encode($results);
@@ -33,7 +33,7 @@ class FrontController extends BaseController
     !array_key_exists('weight', $data) && $data['weight'] = null;
     !array_key_exists('height', $data) ? $dimensions = null : $dimensions = (string)$data['height'] . 'x' . (string)$data['width'] . 'x' . (string)$data['length'];
 
-    $sql = "INSERT INTO Product (sku,name,price,size,weight,dimensions)
+    $sql = "INSERT INTO products (sku,name,price,size,weight,dimensions)
       VALUES (:sku,:name,:price,:size,:weight,:dimensions)";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute([
@@ -45,7 +45,7 @@ class FrontController extends BaseController
   public function check_dublicate($value)
   {
     $error = false;
-    $sql = "SELECT sku,name FROM Product";
+    $sql = "SELECT sku,name FROM products";
     $statment = $this->conn->query($sql);
     $results = $statment->fetchAll(PDO::FETCH_ASSOC);
     $value = explode('_', $value);
@@ -61,7 +61,7 @@ class FrontController extends BaseController
   {
     $data = json_decode(file_get_contents('php://input'), true);
     foreach ($data as $id) {
-      $sql = "DELETE FROM Product WHERE id = $id";
+      $sql = "DELETE FROM products WHERE id = $id";
       $this->conn->exec($sql);
     }
   }

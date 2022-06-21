@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-const useError = (initialError, flag, field, setError, expression, initialError_preg) => {
+const useError = (initialError, flag, field, setError, expression, initialError_preg,setFlag) => {
   useEffect(() => {
-    flag.current && field.value === ''
+    flag && field.value === ''
       ? setError(initialError)
-      : flag.current && field.value.match(expression) === null
+      : flag && field.value.match(expression) === null
       ? setError(initialError_preg)
       : setError('');
-    if (!flag.current) flag.current = true;
+    if (!flag) setFlag(true);
   }, [field.value]);
 };
 

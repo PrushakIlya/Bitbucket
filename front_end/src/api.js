@@ -14,9 +14,9 @@ export const getProductApi = (url) => {
 };
 
 export const deleteProductApi = (url, payload) => {
-  console.log(payload)
   fetch(url, {
-    method: 'DELETE',
+    method: 'POST',
+    mode: 'no-cors',
     body: JSON.stringify(payload),
   }).then((error) => console.log(error));
 };

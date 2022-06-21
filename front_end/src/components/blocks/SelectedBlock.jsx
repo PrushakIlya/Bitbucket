@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import Dimensions from './selected/Dimensions';
-import Size from './selected/Size';
-import Weight from './selected/Weight';
-import './../../sass/components/blocks/selected.sass';
+import Furniture from './selected/Furniture';
+import DVD from './selected/DVD';
+import Book from './selected/Book';
 
-const SelectedBlock = prop => {
+const SelectedBlock = props => {
   const [switcher, setSwitcher] = useState('');
 
   useEffect(() => {
     setSwitcher(switcher);
   }, [switcher]);
 
-  function check() {
+  function more() {
     switch (switcher) {
-      case 'size':
-        return <Size setDisabled={prop.setDisabled} />;
-      case 'weight':
-        return <Weight setDisabled={prop.setDisabled} />;
-      case 'dimensions':
-        return <Dimensions setDisabled={prop.setDisabled} />;
+      case 'dvd':
+        return <DVD setDisabled={props.setDisabled} />;
+      case 'book':
+        return <Book setDisabled={props.setDisabled} />;
+      case 'furniture':
+        return <Furniture setDisabled={props.setDisabled} />;
     }
   }
 
   return (
-    <>
-      <label htmlFor='type_switcher'>Type Switcher: </label>
-      <select name='type_switcher' id = 'productType' onChange={e => {setSwitcher(e.target.value);}}>
+    <div className='create_switcher'>
+      <div className='switcher_header'>
+      <label htmlFor='productType'>Type Switcher: </label>
+      <select name='productType' id = 'productType' onChange={e => {setSwitcher(e.target.value);}}>
         <option value='type' disabled selected>Type Switcher</option>
-        <option value='size'>Size</option>
-        <option value='weight'>Weight</option>
-        <option value='dimensions'>Dimensions</option>
+        <option value='dvd'>DVD</option>
+        <option value='book'>Book</option>
+        <option value='furniture'>Furniture</option>
       </select>
-      {check()}
-    </>
+      </div>
+      {more()}
+    </div>
   );
 };
 

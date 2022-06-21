@@ -14,7 +14,7 @@ class Web
 
     foreach ($this->routes as $pattern => $replacement) {
 
-      $match = preg_match("~$pattern~", $_SERVER['REQUEST_URI']);
+      $match = preg_match("~^$pattern$~", $_SERVER['REQUEST_URI']);
 
       if ($match) {
         $route = preg_replace("~$pattern~", $replacement, $_SERVER['REQUEST_URI']);

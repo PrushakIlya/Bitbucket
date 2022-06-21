@@ -1,15 +1,15 @@
-const IndexBlock = prop => {
+const IndexBlock = props => {
   return (
     <div className='index_block'>
-      <label htmlFor={prop.element.id}></label>
-      <input type='checkbox' value={prop.element.id} name='checkbox' className='delete-checkbox' onChange={e => prop.checkbox(e.target.value)} />
+      <label htmlFor={props.element.id}></label>
+      <input type='checkbox' value={props.element.id} name='delete-checkbox' id="delete-checkbox" className='delete-checkbox' onChange={e => props.checkbox(e.target.value)} />
       <div className='index_block_text'>
-        <p id='sku'>{prop.element.sku}</p>
-        <p id='name'>{prop.element.name}</p>
-        <p id='price'>{prop.element.price} $</p>
-        <p id='size'>{prop.element.size ? prop.element.size + 'MB' : ''}</p>
-        <p id='weight'>{prop.element.weight ? prop.element.weight + 'KG' : ''}</p>
-        <p id='dimensions'>{prop.element.dimensions}</p>
+        <p id='sku'>{props.element.sku}</p>
+        <p id='name'>{props.element.name}</p>
+        <p id='price'>{props.element.price} $</p>
+        <p id='dvd'>{props.element.size ? props.element.size + 'MB' : ''}</p>
+        <p id='book'>{props.element.weight ? props.element.weight + 'KG' : ''}</p>
+        <p id='furniture'>{props.element.dimensions}</p>
       </div>
     </div>
   );

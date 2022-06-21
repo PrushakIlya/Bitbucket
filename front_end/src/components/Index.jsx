@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 import IndexBlock from './blocks/IndexBlock';
 import { getProductApi, deleteProductApi } from './../api';
 import { Link } from 'react-router-dom';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 
 const Index = () => {
-  useEffect(() => { getProductApi(PRODUCT_INDEX) }, []);
+  useEffect(() => {
+    getProductApi(PRODUCT_INDEX);
+  }, []);
   let idDelete = [];
 
   const getIdCheckbox = value => {
@@ -32,15 +34,16 @@ const Index = () => {
             <div className='index_header'>
               <h1>Product List</h1>
               <div className='index_btn'>
-                <Link to='/addproduct' className='btn_cancel_add btn'>ADD</Link>
-                <button className='btn_delete btn'>MASS DELETE</button>
+                <Link to='/addproduct' className='btn_cancel_add btn'>
+                  ADD
+                </Link>
+                <button className='btn_delete btn' id="delete-product-btn">MASS DELETE</button>
               </div>
             </div>
             <div className='index_blocks'>
               {useSelector(el =>
-  
                 el.value.map(el => {
-                  return <IndexBlock element={el} key={el.id} checkbox={getIdCheckbox} />
+                  return <IndexBlock element={el} key={el.id} checkbox={getIdCheckbox} />;
                 })
               )}
             </div>
